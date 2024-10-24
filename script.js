@@ -1,6 +1,6 @@
 function limparCampos() {
-    document.getElementById('valor1').value = ""
-    document.getElementById('valor2').value = ""
+    document.getElementById('valor1').value = "";
+    document.getElementById('valor2').value = "";
 
 }
 
@@ -32,9 +32,9 @@ function divisor() {
     valor = parseInt(valor);
 
     if (valor % 5 == 0) {
-        document.getElementById('divisor').textContent = `O Valor ${valor} é divisivel por 5`
+        document.getElementById('divisor').textContent = `O Valor ${valor} é divisivel por 5`;
     }else {
-        document.getElementById('divisor').textContent = `O Valor ${valor} não é divisivel por 5`
+        document.getElementById('divisor').textContent = `O Valor ${valor} não é divisivel por 5`;
     }
     
 }
@@ -42,26 +42,47 @@ function divisor() {
 function raizQuadrada() {
     let numero  = document.getElementById('numero').value;
 
-    let raizQuadrada = numero ** 0.5
-    let quadrado = numero ** 2
+    let raizQuadrada = numero ** 0.5;
+    let quadrado = numero ** 2;
 
     if (numero >= 0) {
-        document.getElementById('raiz').textContent = `A Raiz Quadrada de: ${numero} é ${raizQuadrada}`
+        document.getElementById('raiz').textContent = `A Raiz Quadrada de: ${numero} é ${raizQuadrada}`;
     }else {
-        document.getElementById('quadrado').textContent = `A Quadrado de: ${numero} é ${quadrado}`
+        document.getElementById('quadrado').textContent = `A Quadrado de: ${numero} é ${quadrado}`;
     }
 }
 
+
 function nomeCompleto() {
-    let nomeCompleto = document.getElementById('nomeCompleto').value;
+    
+    const nomeCompleto = document.getElementById('nomeCompleto').value;
+  
+    const nomes = nomeCompleto.split(" ");
+    const primeiroNome = nomes[0];
+    const ultimoNome = nomes[nomes.length - 1];
+  
+    document.getElementById('primeiroNome').innerHTML = `Primeiro Nome: ${primeiroNome}`;
+    document.getElementById('ultimoNome').innerHTML = `Ultimo Nome: ${ultimoNome}`;
+  }
 
-    let nomes = nomeCompleto.split(' ');
 
-    let primeiroNome = nomes[0];
-    let ultimoNome = nomes[nomes.lenght - 1];
+  function fibonacci(n) {
+    // Inicializa a sequência com os dois primeiros termos
+    const fibonacciSequence = [1, 1];
+  
+    // Calcula os próximos termos até o n-ésimo
+    for (let i = 2; i < n; i++) {
+      const nextTerm = fibonacciSequence[i - 1] + fibonacciSequence[i - 2];
+      fibonacciSequence.push(nextTerm);
+    }
+  
+    // Retorna a sequência completa
+    return fibonacciSequence;
+  }
+  
+  // Solicita ao usuário o número de termos
+  const n = parseInt(document.getElementById('n'))
 
-    document.getElementById('primeiroNome').textContent = `Primeiro Nome: ${primeiroNome}`;
-    document.getElementById('ultimoNome').textContent = `Ultimo Nome: ${ultimoNome}`;
-      
-}
-
+  // Chama a função e imprime o resultado
+  const resultado = fibonacci(n);
+  console.log(resultado)
